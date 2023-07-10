@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "Generator": {
+      "commandName": "Project",
+      "commandLineArgs": "templates/array_template_csharpstyle.txt ../csharp-style/NodeArray.gd -replace:VALUE_TYPE:Node",
+      "workingDirectory": "../../.."
+    }
+  }
+}

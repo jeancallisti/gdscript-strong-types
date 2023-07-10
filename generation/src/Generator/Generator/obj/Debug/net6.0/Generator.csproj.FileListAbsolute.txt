@@ -1,0 +1,15 @@
+C:\src\gdscript-strong-types\generation\src\Generator\Generator\bin\Debug\net6.0\Generator.exe
+C:\src\gdscript-strong-types\generation\src\Generator\Generator\bin\Debug\net6.0\Generator.deps.json
+C:\src\gdscript-strong-types\generation\src\Generator\Generator\bin\Debug\net6.0\Generator.runtimeconfig.json
+C:\src\gdscript-strong-types\generation\src\Generator\Generator\bin\Debug\net6.0\Generator.dll
+C:\src\gdscript-strong-types\generation\src\Generator\Generator\bin\Debug\net6.0\Generator.pdb
+C:\src\gdscript-strong-types\generation\src\Generator\Generator\obj\Debug\net6.0\Generator.csproj.AssemblyReference.cache
+C:\src\gdscript-strong-types\generation\src\Generator\Generator\obj\Debug\net6.0\Generator.GeneratedMSBuildEditorConfig.editorconfig
+C:\src\gdscript-strong-types\generation\src\Generator\Generator\obj\Debug\net6.0\Generator.AssemblyInfoInputs.cache
+C:\src\gdscript-strong-types\generation\src\Generator\Generator\obj\Debug\net6.0\Generator.AssemblyInfo.cs
+C:\src\gdscript-strong-types\generation\src\Generator\Generator\obj\Debug\net6.0\Generator.csproj.CoreCompileInputs.cache
+C:\src\gdscript-strong-types\generation\src\Generator\Generator\obj\Debug\net6.0\Generator.dll
+C:\src\gdscript-strong-types\generation\src\Generator\Generator\obj\Debug\net6.0\refint\Generator.dll
+C:\src\gdscript-strong-types\generation\src\Generator\Generator\obj\Debug\net6.0\Generator.pdb
+C:\src\gdscript-strong-types\generation\src\Generator\Generator\obj\Debug\net6.0\Generator.genruntimeconfig.cache
+C:\src\gdscript-strong-types\generation\src\Generator\Generator\obj\Debug\net6.0\ref\Generator.dll
