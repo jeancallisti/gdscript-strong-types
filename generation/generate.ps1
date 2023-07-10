@@ -12,8 +12,8 @@ $arrayTemplateCSharpStyle = "$templates/" + "array_template_csharpstyle.txt"
 $arrayTemplateGDStyle =  "$templates/" + "array_template_gdstyle.txt"
 
 # output folders
-$outputCSharpStyle = "$projectRootFolder/csharp-style"
-$outputGDStyle = "$projectRootFolder/gdscript-style"
+$outputCSharpStyle = "$projectRootFolder/addons/csharp-style"
+$outputGDStyle = "$projectRootFolder/addons/gdscript-style"
 
 # Read all lines from file 'input.txt'
 Get-Content -Path .\gdscript_types.txt |
@@ -38,7 +38,7 @@ ForEach-Object {
     " > $_" 
 
     $arrayFileName = $_ + "Array.gd" # For example : "NodeArray.gd"
-    
+
     # Array: generate file C#-style
     $outputCSharpStyleFile = "$outputCSharpStyle/$arrayFileName"
     & "$exeReleasePath/Generator.exe" "$arrayTemplateCSharpStyle" "$outputCSharpStyleFile" "-replace:VALUE_TYPE:$_"
