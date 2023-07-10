@@ -14,12 +14,16 @@ It lets you create your own strongly-typed Arrays and Dictionaries too.
 ## Why strong types?
 Godot offers weak typing. It lets you store anything inside anything. But this capability is abused.
 It exists predominantly for the following reasons :
-1) Game development can be similar to fast prototyping : growing fast is more important than being afraid of regression bugs.
-2) Less type checking means less overhead in the game engine, making it faster.
-3) Serialization : saved games want to store your JSON on disk without making a fuss.
-4) Polymorphism : weak typing means objects' behaviours are more important than the data they contain. If they have the method or field that you need then good for you, otherwise it's not really a problem.
+1) Game development can be similar to **fast prototyping** : growing fast is more important than being afraid of regression bugs.
+2) Less type checking means **less overhead** in the game engine, making it faster.
+3) **Serialization** : saved games want to store your JSON on disk without making a fuss.
+4) **Polymorphism** : weak typing means objects' behaviours are more important than the data they contain. If they have the method or field that you need then good for you, otherwise it's not really a problem.
 
-But not all games are like that. Some game developers want a different trade off : They're OK with more overhead, OK with less speed, but they want **zero regression bugs.** They want the game to **crash early and hard** if there's anythig suspicious in the data. Not all game developers accept or even understand this expectation.
+But not all games have such needs. Some game developers want a different trade off : They're OK with more overhead, OK with less speed, but they want **zero regression bugs.** They want the game to **crash early and hard** if there's anythig suspicious in the data. 
+
+Not all game developers accept or even understand this expectation, because there's a predominant spirit of do-it-yourself entusiastic tinkering in the Godot community. As for the others who want air-tight types, they go to Godot C#. But it's not always an option. 
+
+This library exists for anyone who misses their `Dictionary<string, Array<Node>>` (or whatnot) but are stuck with GDScript. 
 
 ## An example : 
 
