@@ -1,6 +1,16 @@
 # gdscript-strong-types
 GDScript library offering strongly-typed Dictionaries and Arrays for all GDScript types
 
+```
+NodeArray
+NodeDictionary
+Node2DArray
+Node2DDictionary
+etc.
+```
+
+It lets you create your own strongly-typed Arrays and Dictionaries too.
+
 ## Why strong types?
 Godot offers weak typing. It lets you store anything inside anything. But this capability is abused.
 It exists predominantly for the following reasons :
