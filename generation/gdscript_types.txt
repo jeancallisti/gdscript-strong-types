@@ -1,6 +1,16 @@
 # This file contains all existing types of the GDScript language
 # Manually extracted from : https://github.com/godotengine/godot/blob/master/core/register_core_types.cpp
 
+
+# Disabled types:
+
+# Type 'JSON' is different, so it doesn't qualify:
+#  - it has no constructor (no JSON.new()) 
+#  - compiler doesn't recognize "is JSON" operator
+# JSON 
+
+# Enabled types:
+
 Object
 Script
 ScriptLanguage
@@ -66,7 +76,6 @@ Thread
 Mutex
 Semaphore
 XMLParser
-JSON
 ConfigFile
 PCKPacker
 PackedDataContainer
