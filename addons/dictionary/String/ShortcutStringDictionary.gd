@@ -9,10 +9,10 @@
 
 
 # This class is a utility class meant to represent a Dictionary
-# where keys are of type 'String' and values of type 'Shortcut'.
+# where keys are of type 'String' and values of type 'ShortCut'.
 # It is not meant to be attached to a Node (unless you want to!)
 # You can generate more classes like this one for your own types.
-class_name ShortcutDictionary
+class_name ShortCutDictionary
 
 var d: Dictionary = {}
 
@@ -28,28 +28,28 @@ func _assert_not_null_String(value: String):
     if (!value is String):
         _crash("Was expecting type 'String'")
 
-func _assert_not_null_Shortcut(value: Shortcut):
-    if (!value is Shortcut):
-        _crash("Was expecting type 'Shortcut'")
+func _assert_not_null_ShortCut(value: ShortCut):
+    if (!value is ShortCut):
+        _crash("Was expecting type 'ShortCut'")
 
-func _assert_nullable_Shortcut(value: Shortcut):
+func _assert_nullable_ShortCut(value: ShortCut):
     if (value == null):
         return
-    if (!value is Shortcut):
-        _crash("Was expecting type 'Shortcut'")
+    if (!value is ShortCut):
+        _crash("Was expecting type 'ShortCut'")
 
-func set(key: String, value: Shortcut):
+func set(key: String, value: ShortCut):
     _assert_not_null_String(key)
-    _assert_not_null_Shortcut(value)
+    _assert_not_null_ShortCut(value)
     d[key] = value
 
 # same as set but allows null values
-func set_nullable(key: String, value: Shortcut):
+func set_nullable(key: String, value: ShortCut):
     _assert_not_null_String(key)
-    _assert_nullable_Shortcut(value)
+    _assert_nullable_ShortCut(value)
     d[key] = value
 
-func get(key: String) -> Shortcut:
+func get(key: String) -> ShortCut:
     _assert_not_null_String(key)
     return d[key]	
 
