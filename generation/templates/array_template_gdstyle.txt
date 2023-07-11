@@ -8,53 +8,69 @@
 #-----------------------------------------------------------------
 
 
-# This class is a utility class meant to represent an array of VALUE_TYPE.
-# it is not meant to be attached to a Node (unless you want to!)
-# It exists in two versions (both named 'VALUE_TYPEArray'): The one in CSharp style (CapitalLetters) or the one in GDScript style (snake_case).
-# Just uncomment the version you like the most.
+# This class is a utility class meant to represent an array
+# in which the values are of type 'VALUE_TYPE'.
+# It is not meant to be attached to a Node (unless you want to!)
+# You can generate more classes like this one for your own types.
+class_name VALUE_TYPEArray
 
-# class_name VALUE_TYPEArray
+var a:Array = [];
 
-# var a:Array = [];
+func _crash(message: String):
+    assert(false, message)
 
-# func _crash(message: String):
-#     assert(false, message)
+func _assert_VALUE_TYPE(value: VALUE_TYPE):
+    if (!value is VALUE_TYPE):
+        _crash("value was expected to be of type VALUE_TYPE")
 
-# func _assert_VALUE_TYPE(value: VALUE_TYPE):
-#     if (!value is VALUE_TYPE):
-#         _crash("value was expected to be of type VALUE_TYPE")
+func _assert_not_null_VALUE_TYPE(value: VALUE_TYPE):
+    if (value == null):
+        _crash("value was expected to be not null")
 
-# func _assert_not_null_VALUE_TYPE(value: VALUE_TYPE):
-#     if (value == null):
-#         _crash("value was expected to be not null")
-#     _assert_VALUE_TYPE(value)
+func set_at(position: int, value: VALUE_TYPE):
+    _assert_not_null_VALUE_TYPE(value);
+    _assert_VALUE_TYPE(value);
+    a[position] = value;
 
-# func set_at(position: int, value: VALUE_TYPE):
-#     _assert_VALUE_TYPE(value);
-#     a[position] = value;
+# Same as set_at but allows null
+func set_at_nullable(position: int, value: VALUE_TYPE):
+    _assert_VALUE_TYPE(value);
+    a[position] = value;
 
-# func get_at(position: int) -> VALUE_TYPE:
-#     return a[position];
+func get_at(position: int) -> VALUE_TYPE:
+    return a[position];
 
-# func add(value: VALUE_TYPE):
-#     _assert_VALUE_TYPE(value);
-#     a.append(value);
+func add(value: VALUE_TYPE):
+    _assert_not_null_VALUE_TYPE(value);
+    _assert_VALUE_TYPE(value);
+    a.append(value);
+
+# Same as add but allows null
+func add_nullable(value: VALUE_TYPE):
+    _assert_VALUE_TYPE(value);
+    a.append(value);
 
 # Same as add, but with a different name.
-# func append(value: VALUE_TYPE):
+func append(value: VALUE_TYPE):
+    _assert_not_null_VALUE_TYPE(value);
+    _assert_VALUE_TYPE(value);
+    a.append(value);
+
+# Same as add_nullable, but with a different name.
+func append_nullable(value: VALUE_TYPE):
+    _assert_VALUE_TYPE(value);
+    a.append(value);
+
+func remove(position: int):
+    a.remove(position);
+
+func size() -> int:
+    return a.size();
+
+func clear():
+    a.clear();
+
+# func Contains(value: VALUE_TYPE) -> bool:
 #     _assert_VALUE_TYPE(value);
-#     a.append(value);
-
-# func remove(position: int):
-#     a.remove(position);
-
-# func size() -> int:
-#     return a.size();
-
-# func clear():
-#     a.clear();
-
-# # func Contains(value: VALUE_TYPE) -> bool:
-# #     _assert_VALUE_TYPE(value);
-# #     return a.contains(value);
+#     return a.contains(value);
 

@@ -8,12 +8,8 @@ $exeReleasePath = "$binPath/Release/net6.0"
 # Variable containing the template for the arrays. 
 # (you don't have to use both)
 $templates= "$projectRootFolder/generation/templates"
-$arrayTemplateCSharpStyle = "$templates/" + "array_template_csharpstyle.txt"
-$arrayTemplateGDStyle =  "$templates/" + "array_template_gdstyle.txt"
-
-# output folders
-$outputCSharpStyle = "$projectRootFolder/addons/csharp-style"
-$outputGDStyle = "$projectRootFolder/addons/gdscript-style"
+$arrayTemplate =  "$templates/" + "array_template_gdstyle.txt"
+$dictionaryTemplate =  "$templates/" + "dictionary_template_gdstyle.txt"
 
 # Read all lines from file 'input.txt'
 Get-Content -Path .\gdscript_types.txt |
@@ -37,15 +33,18 @@ ForEach-Object {
     # Just show the user what's happening
     " > $_" 
 
+
+    # Array
     $arrayFileName = $_ + "Array.gd" # For example : "NodeArray.gd"
+    $outputArrayFile = "$projectRootFolder/addons/array/$arrayFileName"
+    & "$exeReleasePath/Generator.exe" "$arrayTemplate" "$outputArrayFile" "-replace:VALUE_TYPE:$_"
 
-    # Array: generate file C#-style
-    $outputCSharpStyleFile = "$outputCSharpStyle/$arrayFileName"
-    & "$exeReleasePath/Generator.exe" "$arrayTemplateCSharpStyle" "$outputCSharpStyleFile" "-replace:VALUE_TYPE:$_"
-
-    # Array: generate file GDScript-style
-    $outputGDStyleFile = "$outputGDStyle/$arrayFileName"
-    & "$exeReleasePath/Generator.exe" "$arrayTemplateGDStyle" "$outputGDStyleFile" "-replace:VALUE_TYPE:$_"
+    # Dictionary
+    $keyType = "String" # For now we keep it simple
+    $subFolder = "String"
+    $dictionaryFileName = $_ + $keyType + "Dictionary.gd" # For example : "NodeStringDictionary.gd"
+    $outputDictionaryFile = "$projectRootFolder/addons/dictionary/$subFolder/$dictionaryFileName"
+    & "$exeReleasePath/Generator.exe" "$dictionaryTemplate" "$outputDictionaryFile" "-replace:KEY_TYPE:$keyType" "-replace:VALUE_TYPE:$_"
 
 }
 

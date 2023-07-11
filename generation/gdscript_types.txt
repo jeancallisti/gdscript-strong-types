@@ -1,15 +1,24 @@
-# This file contains all existing types of the GDScript language
-# Manually extracted from : https://github.com/godotengine/godot/blob/master/core/register_core_types.cpp
+# This file aims at listing all existing types of the GDScript language,
+# and more generally all types for which you'd like to create arrays and dictionaries
 
-
-# Disabled types:
+# === DISABLED TYPES ===
 
 # Type 'JSON' is different, so it doesn't qualify:
 #  - it has no constructor (no JSON.new()) 
-#  - compiler doesn't recognize "is JSON" operator
+#  - compiler doesn't recognize "is JSON" construct (?!?)
 # JSON 
 
-# Enabled types:
+# There's already a StringsArray or whatnot, in perfect nonsensical GDScript style.
+# String
+
+# === SCALAR TYPES ===
+
+int
+
+# === ENABLED TYPES ===
+
+# Manually extracted from : https://github.com/godotengine/godot/blob/master/core/register_core_types.cpp
+# NOTE: It seems to be missing a lot of types (e.g. Node, Node2D, ...)
 
 Object
 Script
