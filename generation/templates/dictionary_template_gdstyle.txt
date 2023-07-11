@@ -23,35 +23,34 @@ func _init():
 func _crash(message: KEY_TYPE):
     assert(false, message)
 
-func _assert_not_null(value):
-    if (value == null):
-        _crash("value was expected to be not null")
 
-func _assert_KEY_TYPE(value: KEY_TYPE):
+func _assert_not_null_KEY_TYPE(value: KEY_TYPE):
     if (!value is KEY_TYPE):
-        _crash("value was expected to be of type KEY_TYPE")
+        _crash("Was expecting type 'KEY_TYPE'")
 
-func _assert_VALUE_TYPE(value: VALUE_TYPE):
+func _assert_not_null_VALUE_TYPE(value: VALUE_TYPE):
     if (!value is VALUE_TYPE):
-        _crash("value was expected to be of type VALUE_TYPE")
+        _crash("Was expecting type 'VALUE_TYPE'")
+
+func _assert_nullable_VALUE_TYPE(value: VALUE_TYPE):
+    if (value == null):
+        return
+    if (!value is VALUE_TYPE):
+        _crash("Was expecting type 'VALUE_TYPE'")
 
 func set(key: KEY_TYPE, value: VALUE_TYPE):
-    _assert_not_null(key)
-    _assert_KEY_TYPE(key)
-    _assert_not_null(value)
-    _assert_VALUE_TYPE(value)
+    _assert_not_null_KEY_TYPE(key)
+    _assert_not_null_VALUE_TYPE(value)
     d[key] = value
 
 # same as set but allows null values
 func set_nullable(key: KEY_TYPE, value: VALUE_TYPE):
-    _assert_not_null(key)
-    _assert_KEY_TYPE(key)
-    _assert_VALUE_TYPE(value)
+    _assert_not_null_KEY_TYPE(key)
+    _assert_nullable_VALUE_TYPE(value)
     d[key] = value
 
 func get(key: KEY_TYPE) -> VALUE_TYPE:
-    _assert_not_null(key)
-    _assert_KEY_TYPE(key)
+    _assert_not_null_KEY_TYPE(key)
     return d[key]	
 
 func clear():
@@ -64,14 +63,12 @@ func erase (key: KEY_TYPE):
     d.erase(key) #ignore return value
         
 func has(key: KEY_TYPE) -> bool:
-    _assert_not_null(key)
-    _assert_KEY_TYPE(key)
+    _assert_not_null_KEY_TYPE(key)
     return d.has(key)
     
 func has_all(keys: Array) -> bool:
     for key in keys:
-        _assert_not_null(key)
-        _assert_KEY_TYPE(key)
+        _assert_not_null_KEY_TYPE(key)
 
     return d.has_all(keys)
 
