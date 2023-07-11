@@ -23,35 +23,34 @@ func _init():
 func _crash(message: String):
     assert(false, message)
 
-func _assert_not_null(value):
-    if (value == null):
-        _crash("value was expected to be not null")
 
-func _assert_String(value: String):
+func _assert_not_null_String(value: String):
     if (!value is String):
-        _crash("value was expected to be of type String")
+        _crash("Was expecting type 'String'")
 
-func _assert_GDExtension(value: GDExtension):
+func _assert_not_null_GDExtension(value: GDExtension):
     if (!value is GDExtension):
-        _crash("value was expected to be of type GDExtension")
+        _crash("Was expecting type 'GDExtension'")
+
+func _assert_nullable_GDExtension(value: GDExtension):
+    if (value == null):
+        return
+    if (!value is GDExtension):
+        _crash("Was expecting type 'GDExtension'")
 
 func set(key: String, value: GDExtension):
-    _assert_not_null(key)
-    _assert_String(key)
-    _assert_not_null(value)
-    _assert_GDExtension(value)
+    _assert_not_null_String(key)
+    _assert_not_null_GDExtension(value)
     d[key] = value
 
 # same as set but allows null values
 func set_nullable(key: String, value: GDExtension):
-    _assert_not_null(key)
-    _assert_String(key)
-    _assert_GDExtension(value)
+    _assert_not_null_String(key)
+    _assert_nullable_GDExtension(value)
     d[key] = value
 
 func get(key: String) -> GDExtension:
-    _assert_not_null(key)
-    _assert_String(key)
+    _assert_not_null_String(key)
     return d[key]	
 
 func clear():
@@ -64,14 +63,12 @@ func erase (key: String):
     d.erase(key) #ignore return value
         
 func has(key: String) -> bool:
-    _assert_not_null(key)
-    _assert_String(key)
+    _assert_not_null_String(key)
     return d.has(key)
     
 func has_all(keys: Array) -> bool:
     for key in keys:
-        _assert_not_null(key)
-        _assert_String(key)
+        _assert_not_null_String(key)
 
     return d.has_all(keys)
 

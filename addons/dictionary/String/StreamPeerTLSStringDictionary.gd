@@ -23,35 +23,34 @@ func _init():
 func _crash(message: String):
     assert(false, message)
 
-func _assert_not_null(value):
-    if (value == null):
-        _crash("value was expected to be not null")
 
-func _assert_String(value: String):
+func _assert_not_null_String(value: String):
     if (!value is String):
-        _crash("value was expected to be of type String")
+        _crash("Was expecting type 'String'")
 
-func _assert_StreamPeerTLS(value: StreamPeerTLS):
+func _assert_not_null_StreamPeerTLS(value: StreamPeerTLS):
     if (!value is StreamPeerTLS):
-        _crash("value was expected to be of type StreamPeerTLS")
+        _crash("Was expecting type 'StreamPeerTLS'")
+
+func _assert_nullable_StreamPeerTLS(value: StreamPeerTLS):
+    if (value == null):
+        return
+    if (!value is StreamPeerTLS):
+        _crash("Was expecting type 'StreamPeerTLS'")
 
 func set(key: String, value: StreamPeerTLS):
-    _assert_not_null(key)
-    _assert_String(key)
-    _assert_not_null(value)
-    _assert_StreamPeerTLS(value)
+    _assert_not_null_String(key)
+    _assert_not_null_StreamPeerTLS(value)
     d[key] = value
 
 # same as set but allows null values
 func set_nullable(key: String, value: StreamPeerTLS):
-    _assert_not_null(key)
-    _assert_String(key)
-    _assert_StreamPeerTLS(value)
+    _assert_not_null_String(key)
+    _assert_nullable_StreamPeerTLS(value)
     d[key] = value
 
 func get(key: String) -> StreamPeerTLS:
-    _assert_not_null(key)
-    _assert_String(key)
+    _assert_not_null_String(key)
     return d[key]	
 
 func clear():
@@ -64,14 +63,12 @@ func erase (key: String):
     d.erase(key) #ignore return value
         
 func has(key: String) -> bool:
-    _assert_not_null(key)
-    _assert_String(key)
+    _assert_not_null_String(key)
     return d.has(key)
     
 func has_all(keys: Array) -> bool:
     for key in keys:
-        _assert_not_null(key)
-        _assert_String(key)
+        _assert_not_null_String(key)
 
     return d.has_all(keys)
 
