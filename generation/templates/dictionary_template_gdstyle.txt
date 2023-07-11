@@ -10,7 +10,7 @@
 
 # This class is a utility class meant to represent a Dictionary
 # where keys are of type 'KEY_TYPE' and values of type 'VALUE_TYPE'.
-# It is not meant to be attached to a Node (unless you want to!)
+# It is not meant to be attached to a scene tree node (unless you want to!)
 # You can generate more classes like this one for your own types.
 class_name VALUE_TYPEDictionary
 

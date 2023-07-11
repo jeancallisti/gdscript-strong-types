@@ -10,7 +10,7 @@
 
 # This class is a utility class meant to represent an array
 # in which the values are of type 'VALUE_TYPE'.
-# It is not meant to be attached to a VALUE_TYPE (unless you want to!)
+# It is not meant to be attached to a scene tree node (unless you want to!)
 # You can generate more classes like this one for your own types.
 class_name VALUE_TYPEArray
 
