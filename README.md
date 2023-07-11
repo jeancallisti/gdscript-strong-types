@@ -58,3 +58,62 @@ Sure, GDScript offers you basic types such as `StringArray` but it's not really 
 
 But what if I want to create a strongly-typed array of my **own** custom type?
 **This is the use case that this library attempts to address.**
+
+# How to use
+
+Two way sof getting this library : 
+- Manually, from github : 1) Download the files 2) grab the `addons` folder 3) Put it in your `res://` folder in Godot. Done.
+  OR
+- From Godot's Asset Library (not available yet) : 1) Type `gdscript strong types` in the search box 2) Install this plugin. 3) You don't need to "enable" it, it's just a bunch of files that don't interact with Godot.
+
+## Simple array : 
+
+For demo purposes, create **a new node of type "Node"** anywhere in your game, create a script file named `demoscript.gd` and **attach it to the node.**
+
+Put this in `demoscript.gd` :
+
+```
+extends Node
+
+func _ready():
+    var nodesArray: NodeArray = NodeArray.new()
+    nodesArray.add("hello") # Will NOT work, because "hello" is a String, not a Node.
+    nodesArray.add(self) # Will work because self is a non-null node
+    var n: Node = null
+    nodesArray.add(n) # Will NOT work because n is indeed a node but it's null
+    nodesArray.add_nullable(n) # Will work because add_nullable allows null
+```
+
+Notice how the class encapsulates a standard Godot array. 
+You can access it directly with the field named "a": 
+```
+print(nodesArray.a)
+print(nodesArray.a[0])
+nodesArray.a[0] = "whatever, no type check lol"
+...
+```
+
+## Dictionary : 
+
+Just like before, create a node and attach a script to it. Put this in the script:
+
+```
+extends Node
+
+func _ready():
+    var dict: NodeStringDictionary = NodeStringDictionary.new() # Dictionary of Nodes where the keys are Strings
+    dict.set("some key", "some value") # Will NOT work, because "some value" is a String, not a Node.
+    dict.set(0, self) # Will NOT work, because 0 is an int, not a String .
+
+    dict.set("some key", self) # Will work because "some value" is a string and self is a non-null node
+    var n: Node = null
+    dict.set("some key", n) # Will NOT work because n is indeed a node but it's null
+    dict.set_nullable("some key", n) # Will work because set_nullable allows null
+```
+
+Notice how the class encapsulates a standard Godot Dictionary. 
+You can access it directly with the field named "d": 
+```
+print(dict.d)
+dict.d["some other key"] = "whatever, no type check lol"
+```
