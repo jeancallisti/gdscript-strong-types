@@ -20,7 +20,9 @@ This loose-typing capability is abused. It exists predominantly for the followin
 3) **Serialization** : saved games want to store your JSON on disk without making a fuss.
 4) **Polymorphism** : weak typing means objects' behaviours are more important than the data they contain. If they have the method or field that you need then good for you, otherwise it's not really a problem.
 
-But not all games have such needs. Some game developers want a different trade off : They're OK with more overhead, OK with less speed, but they want **zero regression bugs.** They want the game to **crash early and hard** if there's anythig suspicious in the data. 
+## Ha! As a game developer, I don't need strong typing
+Indeed, not all games have the same needs. 
+But some game developers want a different trade off from GDscript: They're OK with more overhead, OK with less speed, but they want **zero regression bugs.** They want the game to **crash early and hard** if there's anythig suspicious in the data. 
 
 Not all game developers accept or even understand this expectation, because there's a predominant spirit of do-it-yourself entusiastic tinkering in the Godot community. As for the others who want air-tight types, they go to Godot C#. But it's not always an option. 
 
