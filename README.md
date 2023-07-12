@@ -56,10 +56,10 @@ func my_function(node: Node)
 
 ## What about arrays and dictionaries?
 
-There's still the case of complex data structures. **Godot lets you put anything in an array or a dictionary.** You can even use object references as keys (facepalm).
+There's still the case of complex data structures. **Godot lets you put anything in an array or a dictionary.** Yes, **even the latest syntax of GDscript 2 :** `var a:Array[SomeType]` to a certain extent. You can even use object references as keys (facepalm).
 Sure, GDScript offers you basic types such as `StringArray` but it's not really for type safety. It's more to work around the relative slowliness of GDScript (compared to its core, written in C) for the most common iteration tasks.
 
-But what if I want to create a strongly-typed array of my **own** custom type?
+But what if I want to create a strongly-typed array of my **own** custom type? What if I don't want **null values** to pop here and there unbeknownst to me?
 **This is the use case that this library attempts to address.**
 
 # How to use
