@@ -13,6 +13,7 @@ It lets you create your own strongly-typed Arrays and Dictionaries too.
 
 ## Why strong types?
 Godot offers weak typing. Yes, **even the latest syntax of GDscript 2 :** `var a:Array[SomeType]`. It lets you store anything inside anything (worse: it lets you slip in some `null` values by accident). 
+
 This loose-typing capability is abused. It exists predominantly for the following reasons :
 1) Game development can be similar to **fast prototyping** : growing fast is more important than being afraid of regression bugs.
 2) Less type checking means **less overhead** in the game engine, making it faster.
